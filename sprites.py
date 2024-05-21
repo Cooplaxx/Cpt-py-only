@@ -64,17 +64,17 @@ class Player(pg.sprite.Sprite): #player class
         self.rect = self.image.get_rect()
         self.hit_rect = pg.Rect(0, 0, int(self.rect.width * 0.4), int(self.rect.height * 0.4))
         self.hit_rect.center = self.rect.center
-        self.vel = vec(0, 0)
-        self.pos = vec(x, y)
-        self.rot = 0
+        self.vel = vec(0, 0) #initial vel
+        self.pos = vec(x, y) #initial position
+        self.rot = 0 #rotating speed
         self.last_shot = 0
-        self.health = PLAYER_HEALTH
+        self.health = PLAYER_HEALTH #player health variable
         self.current_frame = 0
         self.last_update = pg.time.get_ticks()
         self.action = 'idle'
         self.direction = 's'
         self.direction_frames = {'d': 0, 'w': 6, 'a': 12, 's': 18}
-        self.ammo = PLAYER_AMMO  # Start the player with 50 ammo
+        self.ammo = PLAYER_AMMO  #start the player with 50 ammo
 
     def load_images(self): #function that handles loading the run, throw and idle animations
         frame_width = 48
